@@ -6,10 +6,10 @@ Base64는 binary 데이터를 6bit(2^6 = 64)씩 끊어서 해당 숫자의 ASCII
 
 자세한 변환 과정은 이따가 보여드릴게요!
 
-ASCII 코드는 각 글자에 부여된 고유한 코드 약속입니다. 
+ASCII 코드는 각 글자에 부여된 고유한 코드 약속입니다.
 
 ```tsx
-"A".charCodeAt(0) // 65 : "A"의 ASCII 코드 번호
+"A".charCodeAt(0); // 65 : "A"의 ASCII 코드 번호
 ```
 
 이를 테면 글자 "A"는 ASCII 코드 번호가 65입니다.
@@ -34,7 +34,7 @@ ASCII(base-16) : 41
 3. 2진수로 나타낸 표현을 모두 이어붙입니다.
 4. 이걸 6bit씩 끊고 Base64 테이블에 일치하는 문자열로 변환합니다.
 
-![Base64%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B5%E1%86%BC%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A1%E1%86%AB%20657ab3254d374f5b98d33b7ad94024c1/Untitled.png](Base64%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B5%E1%86%BC%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A1%E1%86%AB%20657ab3254d374f5b98d33b7ad94024c1/Untitled.png)
+![Base64 Table](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F8096615c-4694-4e01-aba5-32f3649306a7%2FUntitled.png?table=block&id=657ab325-4d37-4f5b-98d3-3b7ad94024c1&spaceId=a7fb34be-79a2-4b46-a391-88f6d203e1c6&width=3320&userId=83bbde61-714a-493e-88b0-9ca933e5f590&cache=v2)
 
 설명을 위해 다음 코드를 만들었습니다.
 
@@ -43,8 +43,8 @@ const base64Table: { [key: string]: string } = {
   "000000": "A",
   "000001": "B",
   "000010": "C",
-	//... 위의 base65 테이블을 객체로 만든겁니다.
-}
+  //... 위의 base65 테이블을 객체로 만든겁니다.
+};
 
 const before = "Man";
 console.log({ before });
@@ -87,23 +87,23 @@ export {};
 ```
 
 1. 일단 각 글자의 ASCII 코드를 가져옵니다.
-M ⇒ 77
-a ⇒ 97
-n ⇒ 110
+   M ⇒ 77
+   a ⇒ 97
+   n ⇒ 110
 2. 해당 ASCII 코드를 2진수로 나타냅니다. 단 8자리 이진수로(8bit, 1byte) 만들어야합니다.
-M ⇒ 77 ⇒ 1001101 ⇒ (8자리) ⇒ 01001101
-...
+   M ⇒ 77 ⇒ 1001101 ⇒ (8자리) ⇒ 01001101
+   ...
 3. 2진수로 나타낸 표현을 모두 이어붙입니다.
-010011010110000101101110
+   010011010110000101101110
 4. 이걸 6bit씩 끊고 Base64 테이블에 일치하는 문자열로 변환합니다.
-010011 ⇒ "T"
-...
+   010011 ⇒ "T"
+   ...
 5. 최종적으로 모두 이어 붙이면 완성
-"TWFu"
+   "TWFu"
 
 실제로 잘 된건지 체크하려면 Web api의 btoa 함수를 사용해보세요
 
-![Base64%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B5%E1%86%BC%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A1%E1%86%AB%20657ab3254d374f5b98d33b7ad94024c1/Untitled%201.png](Base64%20%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B5%E1%86%BC%E1%84%8B%E1%85%B5%E1%84%85%E1%85%A1%E1%86%AB%20657ab3254d374f5b98d33b7ad94024c1/Untitled%201.png)
+![Console example](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fbddad73c-1297-427c-8443-ad8f073dd272%2FUntitled.png?table=block&id=d51cc876-976a-4123-a796-3d1715bc7c9d&spaceId=a7fb34be-79a2-4b46-a391-88f6d203e1c6&width=1030&userId=83bbde61-714a-493e-88b0-9ca933e5f590&cache=v2)
 
 잘 됐네요!
 
