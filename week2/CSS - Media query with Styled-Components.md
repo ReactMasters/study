@@ -1,6 +1,6 @@
 # 반응형 웹 - Media query with Styled-Components
 
-1. Mobile First
+## 1. Mobile First
 
 ```jsx
 const Col = styled.div`
@@ -14,7 +14,7 @@ const Col = styled.div`
 `;
 ```
 
-2. Breakpoint 추가
+## 2. Breakpoint 추가
 
 - 768px 이하: xs를 span으로 적용
 - 992px 이하: sm을 span으로 적용
@@ -73,7 +73,7 @@ return (
 );
 ```
 
-3.  Typical Device Breakpoints
+## 3. Typical Device Breakpoints
 
 - W3Schools.com에서 제시하는 5개의 사이즈
 
@@ -95,7 +95,7 @@ return (
 }
 ```
 
-4.Orientation: Portrait(세로) / Landscape(가로)
+## 4. Orientation: Portrait(세로) / Landscape(가로)
 
 ```jsx
 @media only screen and (orientation: landscape) {
