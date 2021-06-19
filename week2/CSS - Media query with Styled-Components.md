@@ -22,6 +22,7 @@ const Col = styled.div`
 - 1200px 이상: lg를 span으로 적용
 
 ```jsx
+//Column.js
 const calcWidthPercent = (span) => {
   if (!span) return;
 
