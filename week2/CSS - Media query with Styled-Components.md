@@ -1,8 +1,14 @@
 # 반응형 웹 - Media query with Styled-Components
 
+```
+yarn add styled-components
+```
+
 ## 1. Mobile First
 
 ```jsx
+import styled from 'styled-components';
+
 const Col = styled.div`
   float: left;
   width: 100%;
