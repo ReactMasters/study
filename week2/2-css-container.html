@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body{
+            height : 100%;
+            width : 100%;
+        }
+        .card-container{
+            min-height: 100px;
+            contain: 
+            style
+            /* Indicates that, for properties that can have effects on more than just an element and its descendants, those effects don't escape the containing element. Note that this value is marked "at-risk" in the spec and may not be supported everywhere. */
+            layout
+            /* Indicates that nothing outside the element may affect its internal layout and vice versa. */
+            size;
+            /* Indicates that the element can be sized without the need to examine its descendants' sizes. */
+        }
+        .card{
+            display : flex;
+        }
+        .title{
+            background-color: aquamarine;
+        }
+        .content{
+            background-color: burlywood;
+        }
+        .column{
+            display : flex;
+            min-height: fit-content;
+        }
+        .left{
+            flex : 1;
+        }
+        .column .card-container{
+            flex : 2;
+        }
+        img{
+            width : 50px;
+            display: block;
+        }
+
+        @container(max-width: 700px){
+            .card{
+                background: grey;
+                flex-direction: column;
+            }
+        }
+      
+    </style>
+</head>
+<body>
+    <div class="column">
+        <div class="left">
+            HAHAHA
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/dd550016-2b59-4904-91d0-13d7a75106e9/jordan-jumpman-2021-pf-basketball-shoe-X3gQBM.png" class="title">TITLE</div>
+                <div class="content">BODY</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container">
+        <div class="card">
+            <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/dd550016-2b59-4904-91d0-13d7a75106e9/jordan-jumpman-2021-pf-basketball-shoe-X3gQBM.png" class="title">TITLE</div>
+            <div class="content">BODY</div>
+        </div>
+    </div>
+
+</body>
+</html>
