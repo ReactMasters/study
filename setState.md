@@ -103,8 +103,7 @@ class User {
 
 
 # 참고자료
-* https://www.freecodecamp.org/news/functional-setstate-is-the-future-of-react-374f30401b6b/#.lt8jkdocr 
+* https://www.freecodecamp.org/news/functional-setstate-is-the-future-of-react-374f30401b6b/
 * https://leehwarang.github.io/2020/07/28/setState.html 
-* https://www.freecodecamp.org/news/functional-setstate-is-the-future-of-react-374f30401b6b/ 
 * https://stackoverflow.com/questions/48209452/when-to-use-functional-setstate 
 * https://dev.to/spukas/3-reasons-to-usereducer-over-usestate-43ad 
