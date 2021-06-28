@@ -113,7 +113,7 @@ We **put any valid JS expression** inside the curly braces in JSX. String, funct
   Classic example is with the `ReturnStatement`.
 
   ```jsx
-  return;
+  return
   ("something");
   ```
 
@@ -162,13 +162,14 @@ function BlueDatePicker() {
 
 ### Why can't component's name start with lowercase?
 
-The lowercase started name refers to a build-in component. So it results in a string `div` or `span` passed to `React.createElement`.
+The lowercase started name refers to a built-in component. So it results in a string `div` or `span` passed to `React.createElement`.
 
 ### Choosing the React element type at Runtime
 
 This often comes up when you want to render a different component based on a prop:
 
 ```jsx
+// TODO: Try this example
 import React from "react";
 import { PhotoStory, VideoStory } from "./stories";
 
@@ -182,7 +183,7 @@ function Story(props) {
   // return <components[props.storyType] story={props.story} />;
   // Correct! JSX type can be a capitalized variable.
   const SpecificStory = components[props.storyType];
-  return <SpecificStory story={props.story} />;
+  return <SpecificStory story={props.story} />; // PascalCase
 }
 ```
 
@@ -269,6 +270,8 @@ Some “falsy” values, such as the 0 number, are still rendered by React.
 
 To fix this, make sure that the expression before && is always boolean.
 
+And when the latter condition becomes false, the expression returns the former one.
+
 ## Reference
 
 template language
@@ -280,8 +283,6 @@ jsx
 Official react page- [https://reactjs.org/docs/introducing-jsx.html](https://reactjs.org/docs/introducing-jsx.html) and many others:
 
 [https://reactjs.org/docs/react-without-jsx.html](https://reactjs.org/docs/react-without-jsx.html)
-
-[https://reactjs.org/docs/jsx-in-depth.html](https://reactjs.org/docs/jsx-in-depth.html)
 
 [https://reactjs.org/docs/jsx-in-depth.html](https://reactjs.org/docs/jsx-in-depth.html)
 
