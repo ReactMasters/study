@@ -1,0 +1,25 @@
+.wrapper{
+    height : 300vh;
+}
+
+.firstPage {
+    height : 100vh;
+    background-color: aquamarine;
+}
+
+.secondPage{
+    height: 100vh;
+    background-color: rgb(251, 183, 151);
+    .target{
+        transition: all 1s ease;
+        opacity : 0;
+        font-size : 4rem;
+        display: inline;
+        transform: translateX(-1000px);
+        width: fit-content;
+        &.active{
+            // transform: translateX(1000px);
+            opacity: 1;
+        }
+    }
+}
