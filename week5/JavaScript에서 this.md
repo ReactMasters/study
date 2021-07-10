@@ -131,7 +131,7 @@ foo.call(obj); // 2
 
 여기서 전달하는 this 에 primitive type을 전달하면 해당 타입에 대응되는 객체 (string ⇒ new String())가 this가 됩니다.
 
-![JavaScript%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5%20this/Untitled.png](JavaScript%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5%20this/Untitled.png)
+![images/Untitled.png](images/Untitled.png)
 
 이렇게 원시 값에 대응 되는 객체로 this가 삼아지는 것을 Boxing 이라 합니다.
 
@@ -150,7 +150,7 @@ var bar = new foo(3);
 
 위와 같은 함수를 정의하고 그냥 호출할 때와 생성자 호출할 때 this는 각기 다릅니다.
 
-![JavaScript%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5%20this/Untitled%201.png](JavaScript%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5%20this/Untitled%201.png)
+![images/Untitled%201.png](images/Untitled%201.png)
 
 즉 생성자 호출을 통해 객체 생성을 하면 함수 내부의 this는 생성된 인스턴스를 가리킵니다.
 
