@@ -3,6 +3,9 @@
 Created: July 3, 2021 8:54 AM
 Tags: frontend, web
 
+
+
+
 # Object basics
 
 ### Object
@@ -26,6 +29,8 @@ It is very common to create an object using an object literal when you want to t
 ### `this`
 
 The `this` keyword refers to the **current object** the code is being written inside.
+
+
 
 # Object-oriented JavaScript for beginners
 
@@ -85,7 +90,15 @@ The Object() constructor
 
 Using the create() method
 
+
+
 # Object prototypes
+
+It's efficient to take advantage of object prototypes when creating multiple instances of the same object. Let's consider when you declare same object instances. The same function of the instances will behave the same. And when considering the memory, you will see that a function of each object still occupies a different memory address.
+
+In this case, you can use the prototype attribute to let every object instance have only one reference to the same behavior function.
+
+When instantiating an object, you use the `new Something()` syntax. This syntax creates an object instance with the `Something()` object as its prototype. And when calling a function, it searches for the function inside the object instance first. And if it doesn't exist, it goes up to its prototype and searches there. So you can apply the prototypes as a parent-child relationship.
 
 ### Prototype-based language
 
