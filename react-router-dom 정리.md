@@ -2,6 +2,7 @@
 
 오늘은 웹 앱에서 리액트 라우터를 쓸 때 사용하는 react-router-dom에 대해 정리해보려한다. 이 글은 다음의 순서로 구성되어있다.
 
+
 1. 브라우저 히스토리 API
 2. React Router의 주요 컴포넌트 세 가지: routers, route matchers, navigation.
 3. React Router에서 제공하는 Hooks
@@ -242,7 +243,7 @@ export default App;
 
 ### useParams
 
-URL parameters를 key-value의 형태로 얻을 수 있는 훅이다. `useParams` 를 사용하기 위해선 동적 라우팅 설정을 해주어야 한다.
+  URL parameters를 key-value의 형태로 얻을 수 있는 훅이다. `useParams` 를 사용하기 위해선 동적 라우팅 설정을 해주어야 한다.
 
 아래 코드는 콜론(`:`)을 이용하여 동적라우팅 설정을 해주었다.
 
