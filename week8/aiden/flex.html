@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<style>
+    html {
+        font-family: Roboto;
+        font-size : 16px;
+    /* font-size : 10px; */
+    }
+
+    html, body{
+        height : 100%;
+        width : 100%;
+        margin: 0;
+    }
+
+    .wrapper{
+        display: flex;
+        /* flex-wrap: wrap; */
+        width : 100%;
+    }
+
+    .wrapper .element:nth-child(1){
+        background-color: red;
+    }
+
+    .wrapper .element:nth-child(2){
+        background-color: blue;
+    }
+
+    .wrapper .element:nth-child(3){
+        background-color: green;
+    }
+
+    .element {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+    }
+
+    .grow1 .element{
+        width: 200px;
+        height : 200px;
+    }
+
+    .grow2 .element{
+        height : 200px;
+    }
+
+    .grow2 .flex-grow-1{
+        flex-grow: 1;
+    }
+
+    .grow2 .flex-grow-2{
+        flex-grow: 2;
+    }
+
+    .shrink1 .element {
+        width: 300px;
+        height: 200px;
+        flex-shrink: 0;
+    }
+
+    .shrink2 .element{
+        width: 300px;
+        height: 200px;
+    }
+
+    .shrink2 .flex-shrink-0{
+        flex-shrink: 0;
+    }
+
+    .shrink2 .flex-shrink-1{
+        flex-shrink: 1;
+    }
+
+    .shrink2 .flex-shrink-2{
+        flex-shrink: 2;
+    }
+
+    .basis1 .element {
+        height : 200px;
+        flex-grow : 1;
+    }
+
+    .basis1 .flex-basis-0 {
+        flex-basis : 0;
+    }
+
+    .basis1 .flex-basis-200px {
+        flex-basis : 200px;
+    }
+
+    .basis1 .flex-basis-fit-content {
+        flex-basis : fit-content;
+    }
+
+    .basis2 .element {
+        height : 200px;
+    }
+
+    .basis2 .flex-basis-200px {
+        flex-basis : 200px;
+    }
+
+    .basis2 .flex-basis-400px {
+        flex-basis : 400px;
+    }
+
+    .box{
+        width : fit-content;
+        height : 200px;
+        background-color: aquamarine;
+    }
+
+    .with-img img{
+        flex-grow : 1;
+        display: block;
+    }
+
+</style>
+<body>
+    <h1>flex-grow 1 - Can it grow at all</h1>
+    <div class="grow1 wrapper">
+        <!-- style="flex-basis:200px; flex-grow: 2;" -->
+        <div  class="element"></div>
+        <div class="element"></div>
+        <div class="element"></div>
+    </div>
+    <h1>flex-grow 2 - How much should it grow</h1>
+    <div class="grow2 wrapper">
+        <!-- style="flex-basis:200px; flex-grow: 2;" -->
+        <div class="flex-grow-1 element"></div>
+        <div class="flex-grow-2 element"></div>
+        <div class="flex-grow-2 element"></div>
+    </div>
+
+    <h1>flex-shrink 1 - Can it shrink at all</h1>
+    <div class="shrink1 wrapper">
+        <div class="element"></div>
+        <div class="element"></div>
+        <div class="element"></div>
+    </div>
+
+    <h1>flex-shrink 2 - How much should it shrink</h1>
+    <div class="shrink2 wrapper">
+        <div class="flex-shrink-0 element"></div>
+        <div class="flex-shrink-1 element"></div>
+        <div class="flex-shrink-2 element"></div>
+    </div>
+
+    <h1>flex-basis 1 - Starting point to grow from</h1>
+    <div class="basis1 wrapper">
+        <div class="flex-basis-0 element"></div>
+        <div class="flex-basis-200px element"></div>
+        <div class="flex-basis-fit-content element">HELLO WORLD</div>
+    </div>
+
+    <h1>flex-basis 2 - Starting point to shrink from</h1>
+    <div class="basis2 wrapper">
+        <div class="flex-basis-200px element"></div>
+        <div class="flex-basis-400px element"></div>
+    </div>
+
+    <h1>flex with an image</h1>
+    <div class="wrapper with-img">
+        <img src="https://picsum.photos/200/300"/>
+        <div class="box">WHATEVER CONTENT</div>
+    </div>
+    
+</body>
+</html>
