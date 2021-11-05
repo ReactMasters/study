@@ -1,0 +1,35 @@
+# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push: # push event covers merge as well.
+    branches:
+      - master 
+      - release/**
+    tags:
+      - v1.*
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build: #job_id
+
+    runs-on: ubuntu-latest #The type of machine to run the job on.
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x] # define a matrix of different configurations.
+
+    steps: # defind a series of tasks to run in a job.
+    - uses: actions/checkout@v2 # https://github.com/actions/checkout
+    - name: Use Node.js ${{ matrix.node-version }} # expression syntax ${{ expression }}
+    - uses: actions/setup-node@v2 # https://github.com/actions/setup-node. This action manages Node.js in the runner system,
+    # dependency strategy, etc.
+      with:
+        node-version: ${{ matrix.node-version }} # Three jobs will run in different node.js versions as you specified in strategy.matrix.
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
