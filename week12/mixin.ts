@@ -1,59 +1,58 @@
-class Sprite {
-    name = "";
-    x = 0;
-    y = 0;
+class Tall {
+    getCriteria: () => { "height > 180" }
+}
 
-    constructor(name: string) {
-        this.name = name;
+class Heavy {
+    getCriteria: () => { "weight > 90" }
+}
+
+// I want to make Giant class that is tall and heavy
+// However, you cannot inherit multiple super classes.
+// class Giant extends Tall extends Heavy{
+
+// }
+
+class Person {
+
+}
+
+const Meh: { constructor: (...args: any[]) => any } = {
+    constructor: () => {
+
     }
 }
 
-// To get started, we need a type which we'll use to extend
-// other classes from. The main responsibility is to declare
-// that the type being passed in is a class.
+// const Me: Constructor = function(){
 
-type Constructor = new (...args: any[]) => any;
+// }
 
-// This mixin adds a scale property, with getters and setters
-// for changing it with an encapsulated private property:
+// const me = new Me();
 
-function Scale<TBase extends Constructor>(Base: TBase) {
-    return class Scaling extends Base {
-        // Mixins may not declare private/protected properties
-        // however, you can use ES2020 private fields
-        _scale = 1;
+type Constructor = new (...args: any[]) => {};
 
-        setScale(scale: number) {
-            this._scale = scale;
+// TallMixin
+
+// function TallMixin<SuperClass>(superClass: SuperClass) { // This will throw an compile error
+function TallMixin<SuperClass extends Constructor>(superClass: SuperClass) {
+    return class extends superClass {
+        getCriteria() {
+            return "height > 180cm"
         }
-
-        get scale(): number {
-            return this._scale;
-        }
-    };
+    }
 }
 
-function Color<TBase extends Constructor>(Base: TBase) {
-    return class Coloring extends Base {
-        // Mixins may not declare private/protected properties
-        // however, you can use ES2020 private fields
-        private _color = "#000";
-
-        setColor(color: string) {
-            this._color = color;
+function HeavyMixin<SuperClass extends Constructor>(superClass: SuperClass) {
+    return class extends superClass {
+        getCriteria() {
+            return "weight > 90kg"
         }
-
-        get color(): string {
-            return this._color;
-        }
-    };
+    }
 }
 
-// Compose a new class from the Sprite class,
-// with the Mixin Scale applier:
-const EightBitSprite = Color(Scale(Sprite));
+const TallMixinApplication = HeavyMixin(TallMixin(Person));
 
-const flappySprite = new EightBitSprite("Bird");
-flappySprite.setScale(0.8);
-flappySprite.setColor("red");
-console.log(flappySprite.scale, flappySprite.color);
+const tallMixinApplicationInstance = new TallMixinApplication();
+
+const criteria = tallMixinApplicationInstance.getCriteria();
+
+console.log(criteria);
