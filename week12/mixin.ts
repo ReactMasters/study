@@ -1,13 +1,14 @@
 class Tall {
-    getCriteria: () => { "height > 180" }
+    getCriteria() { "height > 180" }
 }
 
 class Heavy {
-    getCriteria: () => { "weight > 90" }
+    getCriteria() { "weight > 90" }
 }
 
 // I want to make Giant class that is tall and heavy
-// However, you cannot inherit multiple super classes.
+// However, you cannot inherit multiple parent classes.
+
 // class Giant extends Tall extends Heavy{
 
 // }
@@ -28,31 +29,51 @@ const Meh: { constructor: (...args: any[]) => any } = {
 
 // const me = new Me();
 
-type Constructor = new (...args: any[]) => {};
+
+class TallParentInterface {
+    public getCriteria?() {
+
+    }
+}
+
+type Constructor<ParentInterface> = new (...args: any[]) => ParentInterface;
 
 // TallMixin
 
 // function TallMixin<SuperClass>(superClass: SuperClass) { // This will throw an compile error
-function TallMixin<SuperClass extends Constructor>(superClass: SuperClass) {
+function TallMixin<SuperClass extends Constructor<TallParentInterface>>(superClass: SuperClass) {
     return class extends superClass {
         getCriteria() {
-            return "height > 180cm"
+            if (super.getCriteria) {
+                super.getCriteria();
+            }
+            console.log("height > 180cm");
         }
     }
 }
 
-function HeavyMixin<SuperClass extends Constructor>(superClass: SuperClass) {
+function HeavyMixin<SuperClass extends Constructor<any>>(superClass: SuperClass) {
     return class extends superClass {
         getCriteria() {
-            return "weight > 90kg"
+            if (super.getCriteria) {
+                super.getCriteria();
+            }
+            console.log("weight > 90kg");
         }
     }
 }
 
-const TallMixinApplication = HeavyMixin(TallMixin(Person));
+function addMixins<Constructor>(subClass: Constructor, ...mixins: any[]) {
+    return mixins.reduce((prev, cur) => cur(prev), subClass);
+}
 
-const tallMixinApplicationInstance = new TallMixinApplication();
+const MixInApplication = HeavyMixin(TallMixin(Person));
 
-const criteria = tallMixinApplicationInstance.getCriteria();
+const MixinApplication2 = addMixins(Person, TallMixin, HeavyMixin);
 
-console.log(criteria);
+const mixInApplicationInstance = new MixInApplication();
+
+const mixInApplicationInstance2 = new MixinApplication2();
+
+mixInApplicationInstance.getCriteria();
+mixInApplicationInstance2.getCriteria();
