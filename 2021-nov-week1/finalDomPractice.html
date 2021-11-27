@@ -1,0 +1,27 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <script>
+    function setBodyAttr(attr, value) {
+      if (document.body) document.body[attr] = value;
+      else throw new Error("no support");
+    }
+  </script>
+</head>
+<body>
+  <div>
+    <form>
+      <p><b><code>text</code></b></p>
+      <select onchange="setBodyAttr('text', this.options[this.selectedIndex].value);">
+        <option value="black">black</option>
+        <option value="red">red</option>
+      </select>
+      <p><b><code>bgColor</code></b></p>
+      <select onchange="setBodyAttr('bgColor', this.options[this.selectedIndex].value);">
+        <option value="white">white</option>
+        <option value="lightgrey">lightgrey</option>
+      </select>
+    </form>
+  </div>
+</body>
+</html>
